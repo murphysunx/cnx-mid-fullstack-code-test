@@ -1,4 +1,4 @@
-export class Dealer {
+export interface IDealer {
   bac: string;
   name: string;
   city: string;
