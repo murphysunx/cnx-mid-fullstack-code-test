@@ -1,5 +1,6 @@
 import fs from "fs";
 import { isEqual } from "lodash";
+import path from "path";
 import request from "supertest";
 import app from "../../src/app";
 import { IDealer } from "../../src/entities/Dealer";
@@ -24,11 +25,14 @@ describe("test app", () => {
     const response = await request(app)
       .get("/dealers")
       .set("Accept", "applition/json");
-    expect(response.header["Content-Type"]).toMatch(/json/);
+    expect(response.header["content-type"]).toMatch(/json/);
     expect(response.status).toBe(200);
     // load all dealers from given data set
     const dealersFromFile: IDealer[] = JSON.parse(
-      fs.readFileSync("../../../data/dealers.json", "utf-8")
+      fs.readFileSync(
+        path.resolve(__dirname + "/../../data/", "dealers.json"),
+        "utf-8"
+      )
     );
     const dealersFromServer: IDealer[] = response.body;
     expect(isEqual(dealersFromFile, dealersFromServer)).toBeTruthy();
@@ -43,11 +47,17 @@ describe("test app", () => {
   it("/vehicles/:bac returns corresponding vehicles", async () => {
     // load all dealers from given data set
     const dealersFromFile: IDealer[] = JSON.parse(
-      fs.readFileSync("../../../data/dealers.json", "utf-8")
+      fs.readFileSync(
+        path.resolve(__dirname + "/../../data/", "dealers.json"),
+        "utf-8"
+      )
     );
     // load all vehicles from given data set
     const vehiclesFromFile: IVechicle[] = JSON.parse(
-      fs.readFileSync("../../../data/vehicles.json", "utf-8")
+      fs.readFileSync(
+        path.resolve(__dirname + "/../../data", "vehicles.json"),
+        "utf-8"
+      )
     );
     const getVehiclesByBacFromFile = (bac: string) => {
       return vehiclesFromFile.filter((vehicle) => vehicle.bac === bac);
@@ -57,7 +67,7 @@ describe("test app", () => {
       const response = await request(app)
         .get(`/vehicles/${bac}`)
         .set("Accept", "application/json");
-      expect(response.header["Content-Type"]).toMatch(/json/);
+      expect(response.header["content-type"]).toMatch(/json/);
       expect(response.status).toBe(200);
       const vehiclesByBacFromFile = getVehiclesByBacFromFile(bac);
       const vehiclesByBacFromServer: IVechicle[] = response.body;

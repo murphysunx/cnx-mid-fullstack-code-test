@@ -18,15 +18,15 @@ app.get("/", (req, res) => {
 
 app.get("/dealers", async (req, res) => {
   const data = fs.readFileSync(
-    path.resolve(__dirname, "dealers.json"),
+    path.resolve(__dirname + "/../data/", "dealers.json"),
     "utf-8"
   );
-  res.send(data);
+  res.send(JSON.parse(data));
 });
 
 app.get("/vehicles/:bac", async (req, res) => {
   const data = fs.readFileSync(
-    path.resolve(__dirname, "vehicles.json"),
+    path.resolve(__dirname + "/../data/", "vehicles.json"),
     "utf-8"
   );
   const vehicles: any[] = JSON.parse(data);
