@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DealerService } from 'src/app/services/dealer.service';
+import { DealerService } from '../services/dealer.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-dealer-dashboard',
+  templateUrl: './dealer-dashboard.component.html',
+  styleUrls: ['./dealer-dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DealerDashboardComponent implements OnInit {
   constructor(private dealerService: DealerService) {}
 
   ngOnInit(): void {
