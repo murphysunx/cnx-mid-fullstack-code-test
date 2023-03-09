@@ -1,4 +1,5 @@
 import cors from "cors";
+import proxy from "express-http-proxy";
 import express from "express";
 import * as fs from "fs";
 import path from "path";
@@ -12,25 +13,14 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get("/dealers", async (req, res) => {
-  const data = fs.readFileSync(
-    path.resolve(__dirname + "/../data/", "dealers.json"),
-    "utf-8"
-  );
-  res.send(JSON.parse(data));
-});
-
-app.get("/vehicles/:bac", async (req, res) => {
-  const data = fs.readFileSync(
-    path.resolve(__dirname + "/../data/", "vehicles.json"),
-    "utf-8"
-  );
-  const vehicles: any[] = JSON.parse(data);
-  res.send(vehicles.filter((v) => v.bac === req.params.bac));
-});
+app.use(
+  "/",
+  proxy("https://bb61co4l22.execute-api.us-west-2.amazonaws.com", {
+    proxyReqPathResolver: function (req) {
+      // console.log("req path", req.path);
+      return "/development/" + req.path;
+    },
+  })
+);
 
 export default app;
