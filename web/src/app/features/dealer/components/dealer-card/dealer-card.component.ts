@@ -8,5 +8,5 @@ import { Dealer } from '../../models/dealer.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DealerCardComponent {
-  @Input() dealer?: Dealer;
+  @Input() dealer!: Dealer;
 }
