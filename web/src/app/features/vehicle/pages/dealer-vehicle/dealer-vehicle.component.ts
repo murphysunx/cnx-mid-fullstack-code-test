@@ -31,7 +31,10 @@ export class DealerVehicleComponent implements OnInit {
     this.route.params
       .pipe(
         map((params) => params['bac']),
-        tap(() => (this.init = false)),
+        tap((bac) => {
+          this.init = false;
+          this.bac = bac;
+        }),
         switchMap((bac) => this.vehicleService.getVehiclesByBac(bac))
       )
       .subscribe({

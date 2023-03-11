@@ -4,9 +4,9 @@
       <h1>Here is a list of vehicles under the dealer - {{ bac }}</h1>
       <div>
         <mat-list role="list">
-          <mat-list-item role="listitem" *ngFor="let vehicle of vehicles">
+          <div *ngFor="let vehicle of vehicles">
             <app-vehicle-deatil [vehicle]="vehicle"></app-vehicle-deatil>
-          </mat-list-item>
+          </div>
         </mat-list>
       </div>
     </ng-container>

@@ -3,9 +3,10 @@ import { VehicleDetailModule } from '../../components/vehicle-deatil/vehicle-det
 
 import { DealerVehicleComponent } from './dealer-vehicle.component';
 import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [VehicleDetailModule, MatListModule],
+  imports: [CommonModule, VehicleDetailModule, MatListModule],
   exports: [DealerVehicleComponent],
   declarations: [DealerVehicleComponent],
 })

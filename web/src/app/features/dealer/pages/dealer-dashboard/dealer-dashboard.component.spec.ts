@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { DealerService } from '../services/dealer.service';
+import { DealerService } from '../../services/dealer.service';
 
 import { DealerDashboardComponent } from './dealer-dashboard.component';
 

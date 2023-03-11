@@ -1,11 +1,7 @@
 <mat-list role="list" *ngIf="dealers && dealers.length > 0; else emptyList">
-  <mat-list-item
-    class="dealer-list__item"
-    role="listitem"
-    *ngFor="let dealer of dealers"
-  >
+  <div class="dealer-list__item" role="listitem" *ngFor="let dealer of dealers">
     <app-dealer-card [dealer]="dealer"></app-dealer-card>
-  </mat-list-item>
+  </div>
 </mat-list>
 
 <ng-template #emptyList>
