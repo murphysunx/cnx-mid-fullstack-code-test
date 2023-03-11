@@ -1,1 +1,7 @@
-<p>dealer-vehicle works!</p>
+<ng-container *ngIf="initalised; else loading">
+  <ng-container *ngIf="bac && vehicles">
+
+  </ng-container>
+  
+</ng-container>
+<ng-template #loading> loading </ng-template>
