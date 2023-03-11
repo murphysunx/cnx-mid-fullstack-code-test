@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./features/dealer/dealer.module').then((m) => m.DealerModule),
   },
   {
+    path: 'vehicles',
+    loadChildren: () =>
+      import('./features/vehicle/vehicle.module').then((m) => m.VehicleModule),
+  },
+  {
     path: '**',
     redirectTo: 'dashboard',
   },

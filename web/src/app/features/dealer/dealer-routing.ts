@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DealerDashboardComponent } from './pages/dealer-dashboard.component';
+import { DealerDashboardComponent } from './pages/dealer-dashboard/dealer-dashboard.component';
 
 const dealerRoutes: Routes = [
   {
