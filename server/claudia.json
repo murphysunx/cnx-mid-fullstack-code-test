@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "cnx-mid-fullstack-code-test-open-executor",
+    "name": "cnx-mid-fullstack-code-test-open",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "ud9fscxo84"
+  }
+}
